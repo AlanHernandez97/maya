@@ -1,4 +1,8 @@
+'use client'
+import { ClipboardClock } from 'lucide-react';
 import Image from 'next/image'
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 type LinkType = {
     title: string;
@@ -7,6 +11,8 @@ type LinkType = {
 
 const Navbar = () => {
 
+    const pathname = usePathname();
+
     const links: LinkType[] = [
         {
             title: "Inicio",
@@ -14,7 +20,7 @@ const Navbar = () => {
         },
         {
             title: "Servicios",
-            path: "/services"
+            path: "/service"
         },
         {
             title: "Nosotros",
@@ -26,21 +32,31 @@ const Navbar = () => {
         },
     ]
 
-
     return (
-        <nav className='w-full py-2 px-3 flex justify-between items-center bg-[#1A1A1A]'>
+        <nav className='w-full px-3 flex justify-between items-center bg-[#1A1A1A]'>
             <div className='flex gap-none items-center'>
-                <Image src={"/logos/MayaLogoGolden.png"} alt='company-logo' width={130} height={130} />
+                <Image loading='eager' src={"/logos/MayaLogoGolden.png"} alt='company-logo' width={140} height={140} />
             </div>
             <div className='text-white flex gap-10 mr-10'>
                 {
                     links.map((link, index) => (
-                        <a key={index} href={link.path} className='hover:text-[#00F0FF] transition-all ease-in-out duration-200 cursor-pointer font-bold'>{link.title}</a>
+                        <Link
+                            key={index}
+                            href={link.path}
+                            className={`hover:text-[#00F0FF] transition-all ease-in-out duration-200 cursor-pointer font-bold ${pathname === link.path ? "text-[#00F0FF] underline" : ""}`}
+                        >
+                            {link.title}
+                        </Link>
                     ))
                 }
             </div>
             <div className='flex gap-2'>
-                <button className='p-2 bg-amber-300 text-black rounded-lg cursor-pointer'>Seguimiento</button>
+                <button className='p-2 bg-[#FFD700] text-[#1A1A1A] hover:bg-[#FFD700]/80 transition-all ease-in-out duration-200 cursor-pointer rounded-xl'>
+                    <Link href={"/tracking"} className='flex gap-2 items-center'>
+                        <ClipboardClock size={16} />
+                        <span className='font-bold text-sm'>Seguimiento</span>
+                    </Link>
+                </button>
 
             </div>
         </nav>
