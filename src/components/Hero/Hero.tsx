@@ -14,7 +14,7 @@ const Hero = () => {
                     <p className='text-white font-semibold w-[50%] mt-4 text-sm'>Armamos, optimizamos y desarrollamos tecnología a la medida para estudiantes, gamers, creadores y negocios locales.</p>
                 </div>
                 <button>
-                    <div className='w-44 p-3 bg-transparent border border-[#00F0FF] text-[#00F0FF] rounded-lg flex items-center justify-center gap-2'>
+                    <div className='w-44 p-3 bg-transparent hover:bg-[#00363A] border border-[#00F0FF] text-[#00F0FF] rounded-lg flex items-center justify-center gap-2'>
                         <p className='font-bold text-sm text-center uppercase'>Ver servicios</p>
                         <Settings size={16} />
                     </div>
