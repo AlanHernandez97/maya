@@ -244,15 +244,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-5 pb-20 sm:px-8 sm:pb-24 lg:px-12"><div className="cta-panel mx-auto max-w-7xl rounded-4xl px-6 py-14 text-center sm:px-12 sm:py-20"><p className="mb-4 text-xs font-bold uppercase tracking-[.2em] text-gold">El siguiente paso empieza aquí</p><h2 className="mx-auto max-w-4xl font-heading text-3xl font-extrabold leading-tight text-ivory sm:text-5xl">¿Listo para mejorar tu equipo o crear tu sistema?</h2><p className="mx-auto mt-5 max-w-2xl text-lg leading-7 text-muted">Hablemos de tu idea. Te ayudamos a convertirla en una solución que funcione para ti.</p><Link href={whatsapp} target="_blank" rel="noreferrer" className="button-gold mt-8 inline-flex items-center gap-3 rounded-xl px-8 py-4 font-bold">Hablar por WhatsApp <Rocket size={19} /></Link></div></section>
-
-      <footer className="border-t border-white/10 bg-[#0e0e0f] py-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-7 px-5 text-center sm:px-8 md:flex-row md:text-left lg:px-12">
-          <Link href="#inicio" className="flex items-center" aria-label="Volver al inicio"><Image src="/logos/MayaLogoGolden.png" alt="MAYA Tech" width={140} height={140} className="h-[140px] w-[140px] object-contain" /></Link>
-          <nav aria-label="Enlaces del pie de página" className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-muted"><Link href="#inicio" className="hover:text-cyan">Inicio</Link><Link href="#servicios" className="hover:text-cyan">Servicios</Link><Link href="#nosotros" className="hover:text-cyan">Nosotros</Link><Link href="#contacto" className="hover:text-cyan">Contacto</Link></nav>
-          <p className="text-xs text-muted">© {new Date().getFullYear()} MAYA Tech. Todos los derechos reservados.</p>
+      <section className="px-5 pb-20 sm:px-8 sm:pb-24 lg:px-12">
+        <div className="cta-panel mx-auto max-w-7xl rounded-4xl px-6 py-14 text-center sm:px-12 sm:py-20">
+          <p className="mb-4 text-xs font-bold uppercase tracking-[.2em] text-gold">El siguiente paso empieza aquí</p>
+          <h2 className="mx-auto max-w-4xl font-heading text-3xl font-extrabold leading-tight text-ivory sm:text-5xl">¿Listo para mejorar tu equipo o crear tu sistema?</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-7 text-muted">Hablemos de tu idea. Te ayudamos a convertirla en una solución que funcione para ti.</p>
+          <Link href={whatsapp} target="_blank" rel="noreferrer" className="button-gold mt-8 inline-flex items-center gap-3 rounded-xl px-8 py-4 font-bold">Hablar por WhatsApp <Rocket size={19} /></Link>
         </div>
-      </footer>
+      </section>
     </main>
   );
 }
