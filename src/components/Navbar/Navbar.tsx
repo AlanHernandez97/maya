@@ -1,66 +1,52 @@
-'use client'
-import { ClipboardClock } from 'lucide-react';
-import Image from 'next/image'
+'use client';
+
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { ClipboardClock, Menu, X } from 'lucide-react';
+import { useState } from 'react';
 
-type LinkType = {
-    title: string;
-    path: string;
-}
+const siteLinks = [
+    { title: 'Inicio', route: '/', anchor: '#inicio' },
+    { title: 'Servicios', route: '/service', anchor: '#servicios' },
+    { title: 'Nosotros', route: '/about', anchor: '#nosotros' },
+    { title: 'Contacto', route: '/contact', anchor: '#contacto' },
+];
 
-const Navbar = () => {
-
+export default function Navbar() {
     const pathname = usePathname();
-
-    const links: LinkType[] = [
-        {
-            title: "Inicio",
-            path: "/"
-        },
-        {
-            title: "Servicios",
-            path: "/service"
-        },
-        {
-            title: "Nosotros",
-            path: "/about"
-        },
-        {
-            title: "Contacto",
-            path: "/contact"
-        },
-    ]
+    const [menuOpen, setMenuOpen] = useState(false);
+    const isHome = pathname === '/';
 
     return (
-        <nav className='w-full px-3 flex justify-between items-center bg-[#1A1A1A]'>
-            <div className='flex gap-none items-center'>
-                <Image loading='eager' src={"/logos/MayaLogoGolden.png"} alt='company-logo' width={140} height={140} />
-            </div>
-            <div className='text-white flex gap-10 mr-10'>
-                {
-                    links.map((link, index) => (
-                        <Link
-                            key={index}
-                            href={link.path}
-                            className={`hover:text-[#00F0FF] transition-all ease-in-out duration-200 cursor-pointer font-bold ${pathname === link.path ? "text-[#00F0FF] underline" : ""}`}
-                        >
-                            {link.title}
-                        </Link>
-                    ))
-                }
-            </div>
-            <div className='flex gap-2'>
-                <button className='p-2 bg-[#FFD700] text-[#1A1A1A] hover:bg-[#FFD700]/80 transition-all ease-in-out duration-200 cursor-pointer rounded-xl'>
-                    <Link href={"/tracking"} className='flex gap-2 items-center'>
-                        <ClipboardClock size={16} />
-                        <span className='font-bold text-sm'>Seguimiento</span>
-                    </Link>
+        <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#131314]/90 shadow-lg shadow-black/10 backdrop-blur-xl">
+            <nav className="mx-auto flex h-[140px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-2" aria-label="Navegación principal">
+                <Link href="/" className="flex shrink-0 items-center" aria-label="MAYA Tech, inicio">
+                    <Image src="/logos/MayaLogoGolden.png" alt="MAYA Tech" width={180} height={180} priority className="h-[140px] w-[140px] object-contain" />
+                </Link>
+
+                <div className="hidden items-center gap-8 md:flex">
+                    {siteLinks.map(({ title, route, anchor }) => {
+                        const href = isHome ? anchor : route;
+                        const active = (isHome && title === 'Inicio') || (!isHome && pathname === route);
+                        return <Link key={title} href={href} className={`border-b-2 py-2 text-sm font-semibold transition ${active ? 'border-cyan text-cyan' : 'border-transparent text-white/75 hover:text-cyan'}`}>{title}</Link>;
+                    })}
+                </div>
+
+                <Link href="/tracking" className="button-gold hidden items-center gap-2 rounded-xl px-4 py-3 text-sm font-bold sm:inline-flex">
+                    <ClipboardClock size={17} /> Seguimiento
+                </Link>
+                <button type="button" aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 text-ivory sm:ml-3 md:hidden">
+                    {menuOpen ? <X size={21} /> : <Menu size={21} />}
                 </button>
+            </nav>
 
-            </div>
-        </nav>
-    )
+            {menuOpen && <div className="border-t border-white/10 bg-[#131314] px-5 py-4 shadow-xl md:hidden">
+                <div className="mx-auto flex max-w-7xl flex-col gap-1 sm:px-3">
+                    {siteLinks.map(({ title, route, anchor }) => <Link key={title} href={isHome ? anchor : route} onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-3 text-sm font-semibold text-white/80 hover:bg-white/5 hover:text-cyan">{title}</Link>)}
+                    <Link href="/tracking" onClick={() => setMenuOpen(false)} className="button-gold mt-2 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-bold"><ClipboardClock size={17} /> Seguimiento</Link>
+                </div>
+            </div>}
+        </header>
+    );
 }
-
-export default Navbar
