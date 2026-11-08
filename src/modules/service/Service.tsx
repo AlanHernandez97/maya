@@ -3,9 +3,9 @@
 import Image from 'next/image';
 import { useState, type ReactNode } from 'react';
 import {
-    Activity, ArrowDown, ArrowRight, BadgeCheck, Boxes, Braces, Check, CheckCircle2,
+    Activity, ArrowDown, ArrowRight, BadgeCheck, Boxes, Check, CheckCircle2,
     Clock3, Code2, Cpu, Fan, Gauge, Laptop, MessageCircle, MonitorPlay, MousePointer2, PackageCheck, Phone,
-    School, ShieldCheck, ShoppingCart, Sparkles, Thermometer, Wrench, Zap,
+    School, ShieldCheck, ShoppingCart, Smartphone, Sparkles, Thermometer, Wrench, Zap,
     type LucideIcon,
 } from 'lucide-react';
 
@@ -89,9 +89,9 @@ const softwareServices: { number: string; title: string; icon: LucideIcon; text:
         points: ['Indicadores a la medida', 'Filtros y reportes exportables', 'Datos claros para decidir'], message: 'cotizar un dashboard de datos',
     },
     {
-        number: 'Solución 04', title: 'Automatización y cotizadores web', icon: Braces, wide: true,
-        text: 'Calculadoras interactivas para cotizar tus servicios 24/7, generar documentos y enviar solicitudes completas a tu equipo.',
-        points: ['Flujos automáticos', 'Cotización inmediata', 'Integración con WhatsApp'], message: 'automatizar procesos o crear un cotizador web',
+        number: 'Solución 04', title: 'Desarrollo de aplicaciones móviles', icon: Smartphone, wide: true,
+        text: 'Diseñamos aplicaciones para iOS y Android que ponen tus servicios al alcance de tus clientes. Creamos experiencias intuitivas, conectadas con tus sistemas y preparadas para crecer junto con tu negocio.',
+        points: ['Experiencia para iOS y Android', 'Integración con tus servicios y datos', 'Publicación y acompañamiento'], message: 'cotizar una aplicación móvil para mi negocio',
     },
 ];
 
