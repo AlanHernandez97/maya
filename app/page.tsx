@@ -252,7 +252,7 @@ export default function Home() {
 
       <footer className="border-t border-white/10 bg-[#0e0e0f] py-10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-7 px-5 text-center sm:px-8 md:flex-row md:text-left lg:px-12">
-          <Link href="#inicio" className="flex items-center" aria-label="Volver al inicio"><Image src="/logos/MayaLogoGolden.png" alt="MAYA Tech" width={64} height={64} className="h-14 w-14 object-contain" /></Link>
+          <Link href="#inicio" className="flex items-center" aria-label="Volver al inicio"><Image src="/logos/MayaLogoGolden.png" alt="MAYA Tech" width={140} height={140} className="h-[140px] w-[140px] object-contain" /></Link>
           <nav aria-label="Enlaces del pie de página" className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-muted"><Link href="#inicio" className="hover:text-cyan">Inicio</Link><Link href="#servicios" className="hover:text-cyan">Servicios</Link><Link href="#nosotros" className="hover:text-cyan">Nosotros</Link><Link href="#contacto" className="hover:text-cyan">Contacto</Link></nav>
           <p className="text-xs text-muted">© {new Date().getFullYear()} MAYA Tech. Todos los derechos reservados.</p>
         </div>
