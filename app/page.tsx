@@ -5,7 +5,6 @@ import {
   BadgeCheck,
   Check,
   CheckCircle2,
-  ChevronRight,
   Clock3,
   Code2,
   Cpu,
@@ -78,14 +77,12 @@ const pcBuilds = [
     name: "MAYA Starter",
     label: "Escolar / Oficina",
     description: "Productividad fluida y multitarea para estudiantes y profesionales.",
-    price: "Desde $8,500 MXN",
     image: "/images/hero-image.png",
   },
   {
     name: "MAYA Gaming Plus",
     label: "Top ventas",
     description: "Juega a 1080p competitivo con los FPS que necesitas para ganar.",
-    price: "Desde $14,900 MXN",
     image: "/images/hero-image.png",
     popular: true,
   },
@@ -93,7 +90,6 @@ const pcBuilds = [
     name: "MAYA Elite 4K",
     label: "Streamer / Creator",
     description: "Sin límites para renderizado de video, diseño 3D y streaming 4K.",
-    price: "Desde $28,000 MXN",
     image: "/images/hero-image.png",
   },
 ];
@@ -214,7 +210,7 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-3">
             {pcBuilds.map((build) => <article key={build.name} className="build-card group">
               <div className="relative h-56 overflow-hidden bg-[#17191a]"><Image src={build.image} alt={`Configuración ${build.name}`} fill className="object-cover transition duration-700 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" /><span className="absolute right-4 top-4 rounded-full border border-white/15 bg-black/55 px-3 py-1.5 text-xs backdrop-blur">{build.label}</span></div>
-              <div className="p-6"><h3 className="font-heading text-xl font-bold text-ivory">{build.name}</h3><p className="mt-3 min-h-14 text-sm leading-6 text-muted">{build.description}</p><div className="mt-5 flex items-center justify-between border-t border-white/10 pt-5"><span className={`font-bold ${build.popular ? "text-gold" : "text-cyan"}`}>{build.price}</span><ChevronRight className="text-cyan transition-transform duration-200 group-hover:translate-x-1.5" size={19} /></div></div>
+              <div className="p-6"><h3 className="font-heading text-xl font-bold text-ivory">{build.name}</h3><p className="mt-3 min-h-14 text-sm leading-6 text-muted">{build.description}</p></div>
             </article>)}
           </div>
         </div>
