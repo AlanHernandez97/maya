@@ -9,7 +9,7 @@ import { useState } from 'react';
 const siteLinks = [
     { title: 'Inicio', route: '/', anchor: '#inicio' },
     { title: 'Servicios', route: '/service', anchor: '#servicios' },
-    { title: 'Nosotros', route: '/about', anchor: '#nosotros' },
+    //{ title: 'Nosotros', route: '/about', anchor: '#nosotros' },
     { title: 'Contacto', route: '/contact', anchor: '#contacto' },
 ];
 

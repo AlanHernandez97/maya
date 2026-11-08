@@ -103,7 +103,7 @@ const workflow = [
 ];
 
 function whatsappUrl(message: string) {
-    return `https://wa.me/529611549693?text=${encodeURIComponent(`Hola MAYA Tech, ${message}.`)}`;
+    return `https://wa.me/529611549693?text=${encodeURIComponent(`Hola Maya, ${message}.`)}`;
 }
 
 function WhatsAppLink({ message, children, className }: { message: string; children: ReactNode; className: string }) {
