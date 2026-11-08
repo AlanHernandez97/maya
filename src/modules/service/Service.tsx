@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState, type ReactNode } from 'react';
 import {
     Activity, ArrowDown, ArrowRight, BadgeCheck, Boxes, Braces, Check, CheckCircle2,
@@ -124,7 +123,6 @@ export default function Service() {
     }
 
     return (
-        <>
         <main id="servicios" className="services-page -mt-[140px] pt-[140px] text-white">
             <div className="services-filter sticky top-[140px] z-40 border-y border-white/5 bg-[#101012]/90 px-4 py-4 backdrop-blur-xl sm:px-8">
                 <div className="mx-auto flex max-w-7xl flex-col justify-between gap-3 sm:flex-row sm:items-center">
@@ -223,28 +221,6 @@ export default function Service() {
                 </div>
             </section>
         </main>
-        <footer className="services-footer border-t border-white/[.08] bg-[#111113] px-4 py-10 sm:px-8 lg:px-10">
-            <div className="mx-auto flex max-w-7xl flex-col gap-7">
-                <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-                    <Link href="/" className="flex items-center gap-3" aria-label="MAYA Tech, inicio">
-                        <Image src="/logos/MayaLogoGolden.png" alt="" width={56} height={56} className="h-12 w-12 object-contain" />
-                        <span className="font-heading text-xl font-extrabold tracking-tight text-ivory">MAYA Tech</span>
-                    </Link>
-                    <nav aria-label="Navegación del pie de página" className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/55">
-                        <Link className="transition hover:text-cyan" href="/">Inicio</Link>
-                        <Link className="transition hover:text-cyan" href="/service">Servicios</Link>
-                        <Link className="transition hover:text-cyan" href="/about">Nosotros</Link>
-                        <Link className="transition hover:text-cyan" href="/contact">Contacto</Link>
-                    </nav>
-                </div>
-                <div className="h-px bg-white/[.08]" />
-                <div className="flex flex-col items-start justify-between gap-3 text-xs text-white/40 sm:flex-row sm:items-center">
-                    <p>Armado de PC, mantenimiento y desarrollo de software a la medida.</p>
-                    <p>© {new Date().getFullYear()} MAYA Tech. Todos los derechos reservados.</p>
-                </div>
-            </div>
-        </footer>
-        </>
     );
 }
 

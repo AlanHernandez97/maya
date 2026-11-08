@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/src/components/Navbar/Navbar";
+import Footer from "@/src/components/Footer/Footer";
 import { FloatingButton } from "@/src/components/UI/FloatingButton/FloatingButton";
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Navbar />
         <div aria-hidden="true" className="h-[140px] shrink-0" />
         {children}
+        <Footer />
         <FloatingButton />
       </body>
     </html>
