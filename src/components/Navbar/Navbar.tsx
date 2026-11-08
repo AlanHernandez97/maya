@@ -26,10 +26,10 @@ export default function Navbar() {
                 </Link>
 
                 <div className="hidden items-center gap-8 md:flex">
-                    {siteLinks.map(({ title, route, anchor }) => {
-                        const href = isHome ? anchor : route;
+                    {siteLinks.map(({ title, route }) => {
+
                         const active = (isHome && title === 'Inicio') || (!isHome && pathname === route);
-                        return <Link key={title} href={href} className={`border-b-2 py-2 text-sm font-semibold transition ${active ? 'border-cyan text-cyan' : 'border-transparent text-white/75 hover:text-cyan'}`}>{title}</Link>;
+                        return <Link key={title} href={route} className={`border-b-2 py-2 text-sm font-semibold transition ${active ? 'border-cyan text-cyan' : 'border-transparent text-white/75 hover:text-cyan'}`}>{title}</Link>;
                     })}
                 </div>
 
