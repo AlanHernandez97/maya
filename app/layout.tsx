@@ -5,7 +5,7 @@ import Footer from "@/src/components/Footer/Footer";
 import { FloatingButton } from "@/src/components/UI/FloatingButton/FloatingButton";
 
 export const metadata: Metadata = {
-  title: "MAYA Tech | Soluciones Tecnológicas",
+  title: "MAYA | Soluciones Tecnológicas",
   description: "Armado de PC, mantenimiento y desarrollo de software a la medida para estudiantes, gamers, creadores y negocios.",
   icons: {
     icon: "./favicon.ico",

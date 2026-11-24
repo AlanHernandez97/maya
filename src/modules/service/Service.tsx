@@ -209,7 +209,7 @@ export default function Service() {
             </section>
 
             <section className="bg-[#131314] px-4 py-16 sm:px-8 sm:py-20 lg:px-10">
-                <div className="mx-auto max-w-7xl"><div className="mx-auto mb-10 max-w-2xl text-center"><span className="text-[10px] font-extrabold uppercase tracking-[.2em] text-cyan">Metodología MAYA Tech</span><h2 className="mt-2 font-heading text-2xl font-extrabold text-ivory sm:text-3xl">Así trabajamos contigo</h2></div>
+                <div className="mx-auto max-w-7xl"><div className="mx-auto mb-10 max-w-2xl text-center"><span className="text-[10px] font-extrabold uppercase tracking-[.2em] text-cyan">Metodología MAYA</span><h2 className="mt-2 font-heading text-2xl font-extrabold text-ivory sm:text-3xl">Así trabajamos contigo</h2></div>
                     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{workflow.map((step, index) => <article key={step.title} className="rounded-2xl border border-white/[.06] bg-white/[.03] p-5 sm:p-6"><span className={`font-heading text-2xl font-extrabold ${index === workflow.length - 1 ? 'text-gold' : 'text-white/20'}`}>0{index + 1}</span><h3 className="mt-3 font-heading text-sm font-bold text-ivory">{step.title}</h3><p className="mt-2 text-[11px] leading-5 text-white/50">{step.text}</p></article>)}</div>
                 </div>
             </section>

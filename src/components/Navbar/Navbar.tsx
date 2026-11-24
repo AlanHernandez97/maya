@@ -21,8 +21,8 @@ export default function Navbar() {
     return (
         <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#131314]/90 shadow-lg shadow-black/10 backdrop-blur-xl">
             <nav className="mx-auto flex h-[140px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-2" aria-label="Navegación principal">
-                <Link href="/" className="flex shrink-0 items-center" aria-label="MAYA Tech, inicio">
-                    <Image src="/logos/MayaLogoGolden.png" alt="MAYA Tech" width={180} height={180} priority className="h-[140px] w-[140px] object-contain" />
+                <Link href="/" className="flex shrink-0 items-center" aria-label="MAYA, inicio">
+                    <Image src="/logos/MayaLogoGolden.png" alt="MAYA" width={180} height={180} priority className="h-[140px] w-[140px] object-contain" />
                 </Link>
 
                 <div className="hidden items-center gap-8 md:flex">

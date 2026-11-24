@@ -11,8 +11,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Seguimiento en progreso | MAYA Tech",
-  description: "El centro de seguimiento de reparaciones de MAYA Tech estará disponible pronto.",
+  title: "Seguimiento en progreso | MAYA",
+  description: "El centro de seguimiento de reparaciones de MAYA estará disponible pronto.",
 };
 
 const steps = [
@@ -38,7 +38,7 @@ export default function TrackingPage() {
             <span className="text-[11px] font-bold uppercase tracking-[.18em]">Módulo en desarrollo</span>
           </div>
 
-          <p className="mb-4 text-xs font-bold uppercase tracking-[.22em] text-gold">Seguimiento MAYA Tech</p>
+          <p className="mb-4 text-xs font-bold uppercase tracking-[.22em] text-gold">Seguimiento MAYA</p>
           <h1 className="max-w-2xl font-heading text-4xl font-extrabold leading-[1.08] tracking-tight text-ivory sm:text-5xl lg:text-6xl">
             Estamos preparando algo <span className="tracking-gradient">para tu equipo.</span>
           </h1>

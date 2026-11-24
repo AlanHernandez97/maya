@@ -53,7 +53,7 @@ export default function Contact() {
     const formData = new FormData(event.currentTarget)
     const name = String(formData.get('name') ?? '')
     const details = [
-      `Hola MAYA Tech, soy ${name}.`,
+      `Hola MAYA, soy ${name}.`,
       `Correo: ${formData.get('email')}`,
       `Teléfono: ${formData.get('phone')}`,
       `Servicio: ${formData.get('service')}`,
@@ -133,7 +133,7 @@ export default function Contact() {
               <div className="map-grid absolute inset-0 opacity-40" />
               <div className="relative flex flex-col items-center gap-2">
                 <span className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-gold/10 text-gold shadow-[0_0_35px_rgba(255,215,0,.2)]"><Pin size={22} /></span>
-                <span className="rounded-md border border-white/10 bg-[#101012]/90 px-3 py-1.5 text-[10px] font-semibold text-white/80">MAYA Tech · Chiapas</span>
+                <span className="rounded-md border border-white/10 bg-[#101012]/90 px-3 py-1.5 text-[10px] font-semibold text-white/80">MAYA · Chiapas</span>
               </div>
               <a className="absolute bottom-3 right-3 inline-flex items-center gap-1 text-[10px] font-bold text-cyan hover:text-white" href="https://maps.google.com/?q=Chiapas+Mexico" target="_blank" rel="noreferrer">Abrir mapa <ArrowUpRight size={12} /></a>
             </div>

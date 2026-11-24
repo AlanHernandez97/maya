@@ -33,7 +33,7 @@ export default function NotFound() {
           <Link href="/service" className="inline-flex items-center gap-2 rounded-xl border border-cyan/60 px-5 py-3.5 text-sm font-bold text-cyan transition hover:bg-cyan/10"><ArrowLeft size={17} /> Explorar servicios</Link>
         </div>
 
-        <p className="mt-10 text-xs text-white/35">MAYA Tech <span className="mx-2 text-cyan/60">•</span> Tecnología a tu alcance</p>
+        <p className="mt-10 text-xs text-white/35">MAYA <span className="mx-2 text-cyan/60">•</span> Tecnología a tu alcance</p>
       </div>
     </main>
   );
