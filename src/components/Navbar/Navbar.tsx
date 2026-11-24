@@ -7,10 +7,10 @@ import { ClipboardClock, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 const siteLinks = [
-    { title: 'Inicio', route: '/', anchor: '#inicio' },
-    { title: 'Servicios', route: '/service', anchor: '#servicios' },
+    { title: 'Inicio', route: '/' },
+    { title: 'Servicios', route: '/services' },
     //{ title: 'Nosotros', route: '/about', anchor: '#nosotros' },
-    { title: 'Contacto', route: '/contact', anchor: '#contacto' },
+    { title: 'Contacto', route: '/contact' },
 ];
 
 export default function Navbar() {
@@ -43,7 +43,7 @@ export default function Navbar() {
 
             {menuOpen && <div className="border-t border-white/10 bg-[#131314] px-5 py-4 shadow-xl md:hidden">
                 <div className="mx-auto flex max-w-7xl flex-col gap-1 sm:px-3">
-                    {siteLinks.map(({ title, route, anchor }) => <Link key={title} href={isHome ? anchor : route} onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-3 text-sm font-semibold text-white/80 hover:bg-white/5 hover:text-cyan">{title}</Link>)}
+                    {siteLinks.map(({ title, route }) => <Link key={title} href={route} onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-3 text-sm font-semibold text-white/80 hover:bg-white/5 hover:text-cyan">{title}</Link>)}
                     <Link href="/tracking" onClick={() => setMenuOpen(false)} className="button-gold mt-2 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-bold"><ClipboardClock size={17} /> Seguimiento</Link>
                 </div>
             </div>}

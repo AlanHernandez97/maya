@@ -156,16 +156,16 @@ export default function Contact() {
             </div>
             <form className="relative flex flex-col gap-5" onSubmit={handleSubmit} onChange={() => setSubmissionStatus('idle')}>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <Field label="Nombre completo *" htmlFor="contact-name"><input id="contact-name" name="name" autoComplete="name" placeholder="Ej. Carlos Mendoza" required /></Field>
-                <Field label="Correo electrónico *" htmlFor="contact-email"><input id="contact-email" name="email" autoComplete="email" placeholder="tu-correo@empresa.com" required type="email" /></Field>
+                <Field label="Nombre completo *" htmlFor="contact-name"><input id="contact-name" name="name" autoComplete="name" placeholder="Ej. Carlos Mendoza" required onInvalid={(event) => event.currentTarget.setCustomValidity('¿Cómo te llamas? Escribe tu nombre para poder dirigirnos a ti.')} onInput={(event) => event.currentTarget.setCustomValidity('')} /></Field>
+                <Field label="Correo electrónico *" htmlFor="contact-email"><input id="contact-email" name="email" autoComplete="email" placeholder="tu-correo@empresa.com" required type="email" onInvalid={(event) => event.currentTarget.setCustomValidity('Escribe un correo válido para que podamos responderte.')} onInput={(event) => event.currentTarget.setCustomValidity('')} /></Field>
               </div>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <Field label="Teléfono / WhatsApp *" htmlFor="contact-phone">
-                  <input id="contact-phone" name="phone" autoComplete="tel" placeholder="+52 961 000 0000" required type="tel" />
+                  <input id="contact-phone" name="phone" autoComplete="tel" placeholder="+52 961 000 0000" required type="tel" onInvalid={(event) => event.currentTarget.setCustomValidity('Déjanos un teléfono para poder contactarte.')} onInput={(event) => event.currentTarget.setCustomValidity('')} />
                 </Field>
                 <Field label="Servicio requerido *" htmlFor="contact-service">
                   <div className="relative">
-                    <select id="contact-service" name="service" required defaultValue="">
+                    <select id="contact-service" name="service" required defaultValue="" onInvalid={(event) => event.currentTarget.setCustomValidity('Elige el servicio que necesitas para orientarte mejor.')} onInput={(event) => event.currentTarget.setCustomValidity('')}>
                       <option disabled value="">Selecciona una especialidad</option>
                       <option>Armado de PC Gamer / Oficina</option>
                       <option>Mantenimiento preventivo / correctivo</option>
@@ -182,7 +182,7 @@ export default function Contact() {
                 </div>
                 <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">{budgets.map((item, index) => <button key={item} type="button" onClick={() => setBudget(item)} className={`rounded-lg border px-2 py-2.5 text-[10px] font-semibold transition sm:text-[11px] ${budget === item ? 'border-gold/30 bg-gold/10 text-gold' : 'border-white/[.06] bg-white/[.03] text-white/60 hover:bg-white/[.07]'}`}>{['$8k – $15k', '$15k – $35k', '$35k – $70k', '$70k+ / Corp'][index]}</button>)}</div>
               </fieldset>
-              <Field label="Cuéntanos los detalles de tu proyecto o falla *" htmlFor="contact-details"><textarea id="contact-details" name="details" placeholder="Describe los componentes, objetivos, síntomas o requerimientos de tu proyecto..." required rows={4} /></Field>
+              <Field label="Cuéntanos los detalles de tu proyecto o falla *" htmlFor="contact-details"><textarea id="contact-details" name="details" placeholder="Describe los componentes, objetivos, síntomas o requerimientos de tu proyecto..." required rows={4} onInvalid={(event) => event.currentTarget.setCustomValidity('Cuéntanos un poco más para entender cómo podemos ayudarte.')} onInput={(event) => event.currentTarget.setCustomValidity('')} /></Field>
               {submissionStatus === 'success' && <div role="status" className="flex items-start gap-3 rounded-xl border border-cyan/15 bg-cyan/[.06] p-4 text-xs leading-5 text-white/75"><CheckCircle2 className="mt-0.5 shrink-0 text-cyan" size={17} /><span>Tu solicitud se envió correctamente. Te contactaremos pronto.</span></div>}
               {submissionStatus === 'error' && <div role="alert" className="rounded-xl border border-red-400/20 bg-red-400/[.06] p-4 text-xs leading-5 text-red-100/80">No se pudo enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.</div>}
               <div className="pt-1">
