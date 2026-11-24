@@ -11,7 +11,6 @@ import {
   Eye,
   Handshake,
   MapPin,
-  MonitorCog,
   PackageCheck,
   Rocket,
   Settings2,
@@ -32,6 +31,10 @@ const serviceCards = [
     icon: Cpu,
     accent: "cyan",
     tags: ["Gaming", "Office", "Streaming", "Workstation"],
+    images: [
+      { src: "/images/armado-de-pc-pro.jpeg", alt: "Instalación de memoria RAM durante el armado de una PC" },
+      { src: "/images/servicios-armado-pc-pro.jpeg", alt: "PC personalizada ensamblada en un taller tecnológico" },
+    ],
     wide: true,
   },
   {
@@ -77,20 +80,20 @@ const pcBuilds = [
     name: "MAYA Starter",
     label: "Escolar / Oficina",
     description: "Productividad fluida y multitarea para estudiantes y profesionales.",
-    image: "/images/hero-image.png",
+    image: "/images/maya-starter.jpeg",
   },
   {
     name: "MAYA Gaming Plus",
     label: "Top ventas",
     description: "Juega a 1080p competitivo con los FPS que necesitas para ganar.",
-    image: "/images/hero-image.png",
+    image: "/images/maya-gaming-plus.jpeg",
     popular: true,
   },
   {
     name: "MAYA Elite 4K",
     label: "Streamer / Creator",
     description: "Sin límites para renderizado de video, diseño 3D y streaming 4K.",
-    image: "/images/hero-image.png",
+    image: "/images/maya-elite-4k.jpeg",
   },
 ];
 
@@ -166,7 +169,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
           <SectionHeading eyebrow="Lo que hacemos" title="Nuestros servicios" text="Soluciones integrales desde hardware hasta software personalizado, siempre con un enfoque técnico y profesional." />
           <div className="grid gap-5 md:grid-cols-3">
-            {serviceCards.map(({ title, description, icon: Icon, accent, tags, wide }) => (
+            {serviceCards.map(({ title, description, icon: Icon, accent, tags, images, wide }) => (
               <article key={title} className={`service-card ${wide ? "md:col-span-2" : ""}`}>
                 <div className="flex h-full flex-col">
                   <div className={`icon-box ${accent === "gold" ? "icon-gold" : "icon-cyan"}`}><Icon size={27} /></div>
@@ -175,13 +178,13 @@ export default function Home() {
                   <div className="mt-6 flex flex-wrap gap-2">
                     {tags.map((tag) => <span key={tag} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-cyan/90">{tag}</span>)}
                   </div>
-                  {wide && <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">{["/images/hero-image.png", "/images/hero-image.png"].map((src, index) => <div key={index} className="relative h-24 overflow-hidden rounded-lg"><Image src={src} alt="Detalle de ensamble de computadora" fill className="object-cover opacity-60 transition hover:scale-105 hover:opacity-100" /></div>)}</div>}
+                  {images && <div className={`mt-8 grid gap-3 ${images.length > 1 ? "sm:grid-cols-2" : "grid-cols-1"}`}>{images.map(({ src, alt }) => <div key={src} className="relative h-48 overflow-hidden rounded-lg"><Image src={src} alt={alt} fill className="object-cover" /></div>)}</div>}
                 </div>
               </article>
             ))}
             <article className="service-card flex flex-col justify-between md:col-span-2 md:flex-row md:items-center md:gap-10">
               <div><p className="text-xs font-bold uppercase tracking-[.2em] text-cyan">Garantía MAYA</p><h3 className="mt-3 font-heading text-2xl font-bold text-ivory">Diagnóstico transparente</h3><p className="mt-3 max-w-lg leading-7 text-muted">Revisamos tu equipo y te compartimos un informe técnico claro, con una cotización sin compromisos ocultos.</p><Link href="/service" className="group mt-5 inline-flex items-center gap-2 font-semibold text-gold">Conoce nuestro proceso <ArrowRight className="transition-transform duration-200 group-hover:translate-x-1.5" size={17} /></Link></div>
-              <div className="mt-8 flex h-40 w-full items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-cyan/10 to-gold/10 md:mt-0 md:max-w-[260px]"><MonitorCog size={72} strokeWidth={1} className="text-cyan/70" /></div>
+              <div className="relative mt-8 h-40 w-full overflow-hidden rounded-2xl border border-white/10 md:mt-0 md:max-w-[350px]"><Image src="/images/diagnostico-transparente.jpeg" alt="Panel técnico con gráficas de temperatura y rendimiento para el diagnóstico de una PC" fill className="object-cover" /></div>
             </article>
           </div>
         </div>

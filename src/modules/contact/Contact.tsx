@@ -187,13 +187,13 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-4 pb-20 sm:px-6 lg:px-10 lg:pb-24">
+      {/* <section className="mx-auto w-full max-w-7xl px-4 pb-20 sm:px-6 lg:px-10 lg:pb-24">
         <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div><span className="text-[9px] font-extrabold uppercase tracking-[.18em] text-cyan">Capacidad instalada</span><h2 className="mt-2 font-heading text-2xl font-bold text-ivory sm:text-3xl">Trabajo técnico, con cuidado en cada detalle</h2></div>
           <p className="max-w-md text-xs leading-6 text-white/50 sm:text-sm">Cada ensamble y reparación se realiza con procesos de diagnóstico, control térmico y pruebas de estabilidad.</p>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">{workAreas.map((area) => <article key={area.label} className="contact-work-card group relative h-60 overflow-hidden rounded-2xl border border-white/[.07] sm:h-64"><img className="h-full w-full object-cover transition duration-700 group-hover:scale-105" src={area.image} alt={area.title} loading="lazy" /><div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-transparent" /><div className="absolute bottom-5 left-5"><span className="text-[9px] font-bold uppercase tracking-widest text-cyan">{area.label}</span><h3 className="mt-1 font-heading text-base font-bold text-white">{area.title}</h3></div></article>)}</div>
-      </section>
+      </section> */}
 
       {/* Preguntas frecuentes: se conserva comentada para poder reactivarla después.
       <section className="mx-auto w-full max-w-7xl px-4 pb-20 sm:px-6 lg:px-10 lg:pb-24">
