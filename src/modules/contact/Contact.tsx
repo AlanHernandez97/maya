@@ -119,7 +119,7 @@ export default function Contact() {
                 </div>
               </ContactDetail>
               <ContactDetail icon={<Mail size={19} className="text-cyan" />} label="Soporte y cotizaciones">
-                <a className="break-all text-sm font-bold text-ivory transition hover:text-gold" href="mailto:contacto@mayatech.mx">contacto@mayatech.mx</a>
+                <a className="break-all text-sm font-bold text-ivory transition hover:text-gold" href="mailto:contacto@maya.mx">contacto@maya.mx</a>
               </ContactDetail>
             </div>
           </div>
