@@ -109,7 +109,7 @@ export default function Contact() {
                 <p className="text-xs text-white/45">Atendemos con cita previa</p>
               </ContactDetail>
               <ContactDetail icon={<Clock3 size={19} className="text-cyan" />} label="Horarios de atención">
-                <p className="text-sm font-medium text-white/85">Viernes, Sábado y Domingo · 9:00 AM – 7:00 PM</p>
+                <p className="text-sm font-medium text-white/85">Lunes - Viernes · 9:00 AM – 5:00 PM</p>
                 <p className="mt-1 text-xs text-white/45">Escríbenos para confirmar disponibilidad</p>
               </ContactDetail>
               <ContactDetail icon={<Phone size={19} className="text-gold" />} label="Línea directa">
