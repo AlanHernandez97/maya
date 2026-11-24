@@ -31,10 +31,7 @@ const serviceCards = [
     icon: Cpu,
     accent: "cyan",
     tags: ["Gaming", "Office", "Streaming", "Workstation"],
-    images: [
-      { src: "/images/armado-de-pc-pro.jpeg", alt: "Instalación de memoria RAM durante el armado de una PC" },
-      { src: "/images/servicios-armado-pc-pro.jpeg", alt: "PC personalizada ensamblada en un taller tecnológico" },
-    ],
+    image: "/images/armado-de-pc-pro.jpeg",
     wide: true,
   },
   {
@@ -169,7 +166,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
           <SectionHeading eyebrow="Lo que hacemos" title="Nuestros servicios" text="Soluciones integrales desde hardware hasta software personalizado, siempre con un enfoque técnico y profesional." />
           <div className="grid gap-5 md:grid-cols-3">
-            {serviceCards.map(({ title, description, icon: Icon, accent, tags, images, wide }) => (
+            {serviceCards.map(({ title, description, icon: Icon, accent, tags, image, wide }) => (
               <article key={title} className={`service-card ${wide ? "md:col-span-2" : ""}`}>
                 <div className="flex h-full flex-col">
                   <div className={`icon-box ${accent === "gold" ? "icon-gold" : "icon-cyan"}`}><Icon size={27} /></div>
@@ -178,7 +175,7 @@ export default function Home() {
                   <div className="mt-6 flex flex-wrap gap-2">
                     {tags.map((tag) => <span key={tag} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-cyan/90">{tag}</span>)}
                   </div>
-                  {images && <div className={`mt-8 grid gap-3 ${images.length > 1 ? "sm:grid-cols-2" : "grid-cols-1"}`}>{images.map(({ src, alt }) => <div key={src} className="relative h-48 overflow-hidden rounded-lg"><Image src={src} alt={alt} fill className="object-cover" /></div>)}</div>}
+                  {image && <div className="relative mt-8 h-48 w-full overflow-hidden rounded-lg"><Image src={image} alt="Instalación de memoria RAM durante el armado de una PC" fill className="object-cover" /></div>}
                 </div>
               </article>
             ))}

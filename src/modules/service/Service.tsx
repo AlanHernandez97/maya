@@ -150,7 +150,7 @@ export default function Service() {
                         </div>
                     </div>
                     <div className="services-hero-image relative mx-auto w-full max-w-xl overflow-hidden rounded-3xl border border-white/10 bg-panel shadow-2xl shadow-black/50">
-                        <Image src="/images/hero-image.png" alt="Computadora personalizada en un taller tecnológico" width={1000} height={800} priority className="h-[300px] w-full object-cover sm:h-[390px]" />
+                        <Image src="/images/servicios-armado-pc-pro.jpeg" alt="PC personalizada ensamblada en el taller de MAYA Tech" width={1000} height={800} priority className="h-[300px] w-full object-cover sm:h-[390px]" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-transparent to-transparent" />
                         <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-[#171719]/85 p-4 backdrop-blur-lg sm:inset-x-6 sm:bottom-6">
                             <div><span className="text-[9px] font-bold uppercase tracking-[.18em] text-cyan">Protocolo de ensamblaje</span><p className="mt-1 text-xs font-bold text-ivory sm:text-sm">Pruebas de estabilidad y temperatura</p></div>
