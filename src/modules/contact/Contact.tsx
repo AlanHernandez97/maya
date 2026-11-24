@@ -6,6 +6,7 @@ import {
   ChevronDown, Clock3, Mail, MapPin, MessageCircle, Phone, Pin, Send,
   Wrench,
 } from 'lucide-react'
+import { sendContactEmail } from './contactEmail'
 
 const budgets = ['$8,000 - $15,000', '$15,000 - $35,000', '$35,000 - $70,000', 'Más de $70,000']
 
@@ -46,24 +47,29 @@ const workAreas = [
 export default function Contact() {
   const [budget, setBudget] = useState(budgets[1])
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const [submitted, setSubmitted] = useState(false)
+  const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    const formData = new FormData(event.currentTarget)
-    const name = String(formData.get('name') ?? '')
-    const details = [
-      `Hola MAYA, soy ${name}.`,
-      `Correo: ${formData.get('email')}`,
-      `Teléfono: ${formData.get('phone')}`,
-      `Servicio: ${formData.get('service')}`,
-      `Presupuesto: ${budget} MXN`,
-      `Detalles: ${formData.get('details')}`,
-    ].join('\n')
-    window.open(`https://wa.me/529611549693?text=${encodeURIComponent(details)}`, '_blank', 'noopener,noreferrer')
-    setSubmitted(true)
-    event.currentTarget.reset()
-    setBudget(budgets[1])
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    setSubmissionStatus('sending')
+
+    try {
+      await sendContactEmail({
+        name: String(formData.get('name') ?? '').trim(),
+        email: String(formData.get('email') ?? '').trim(),
+        phone: String(formData.get('phone') ?? '').trim(),
+        service: String(formData.get('service') ?? ''),
+        budget,
+        details: String(formData.get('details') ?? '').trim(),
+      })
+      setSubmissionStatus('success')
+      form.reset()
+      setBudget(budgets[1])
+    } catch {
+      setSubmissionStatus('error')
+    }
   }
 
   return (
@@ -148,7 +154,7 @@ export default function Contact() {
               <h2 className="mt-2 font-heading text-2xl font-bold text-ivory">Inicia tu solicitud</h2>
               <p className="mt-2 max-w-xl text-xs leading-6 text-white/50 sm:text-sm">Completa los datos de tu requerimiento y nuestro equipo te ayudará a definir los siguientes pasos.</p>
             </div>
-            <form className="relative flex flex-col gap-5" onSubmit={handleSubmit} onChange={() => setSubmitted(false)}>
+            <form className="relative flex flex-col gap-5" onSubmit={handleSubmit} onChange={() => setSubmissionStatus('idle')}>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <Field label="Nombre completo *" htmlFor="contact-name"><input id="contact-name" name="name" autoComplete="name" placeholder="Ej. Carlos Mendoza" required /></Field>
                 <Field label="Correo electrónico *" htmlFor="contact-email"><input id="contact-email" name="email" autoComplete="email" placeholder="tu-correo@empresa.com" required type="email" /></Field>
@@ -177,10 +183,11 @@ export default function Contact() {
                 <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">{budgets.map((item, index) => <button key={item} type="button" onClick={() => setBudget(item)} className={`rounded-lg border px-2 py-2.5 text-[10px] font-semibold transition sm:text-[11px] ${budget === item ? 'border-gold/30 bg-gold/10 text-gold' : 'border-white/[.06] bg-white/[.03] text-white/60 hover:bg-white/[.07]'}`}>{['$8k – $15k', '$15k – $35k', '$35k – $70k', '$70k+ / Corp'][index]}</button>)}</div>
               </fieldset>
               <Field label="Cuéntanos los detalles de tu proyecto o falla *" htmlFor="contact-details"><textarea id="contact-details" name="details" placeholder="Describe los componentes, objetivos, síntomas o requerimientos de tu proyecto..." required rows={4} /></Field>
-              {submitted && <div role="status" className="flex items-start gap-3 rounded-xl border border-cyan/15 bg-cyan/[.06] p-4 text-xs leading-5 text-white/75"><CheckCircle2 className="mt-0.5 shrink-0 text-cyan" size={17} /><span>Solicitud preparada. Se abrió WhatsApp con los detalles para que puedas enviarla.</span></div>}
+              {submissionStatus === 'success' && <div role="status" className="flex items-start gap-3 rounded-xl border border-cyan/15 bg-cyan/[.06] p-4 text-xs leading-5 text-white/75"><CheckCircle2 className="mt-0.5 shrink-0 text-cyan" size={17} /><span>Tu solicitud se envió correctamente. Te contactaremos pronto.</span></div>}
+              {submissionStatus === 'error' && <div role="alert" className="rounded-xl border border-red-400/20 bg-red-400/[.06] p-4 text-xs leading-5 text-red-100/80">No se pudo enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.</div>}
               <div className="pt-1">
-                <button className="button-gold inline-flex w-full items-center justify-center gap-3 rounded-xl px-6 py-4 text-xs font-extrabold uppercase tracking-[.12em]" type="submit"><Send size={16} /> Enviar solicitud <ArrowRight size={16} /></button>
-                <p className="mt-3 text-center text-[10px] leading-5 text-white/35">Al continuar, tus datos se compartirán en WhatsApp para atender tu solicitud.</p>
+                <button className="button-gold inline-flex w-full items-center justify-center gap-3 rounded-xl px-6 py-4 text-xs font-extrabold uppercase tracking-[.12em] disabled:cursor-not-allowed disabled:opacity-60" type="submit" disabled={submissionStatus === 'sending'}><Send size={16} /> {submissionStatus === 'sending' ? 'Enviando solicitud…' : 'Enviar solicitud'} <ArrowRight size={16} /></button>
+                <p className="mt-3 text-center text-[10px] leading-5 text-white/35">Al enviar, tus datos se compartirán por correo para atender tu solicitud.</p>
               </div>
             </form>
           </div>
